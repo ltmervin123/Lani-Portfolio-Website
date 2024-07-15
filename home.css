@@ -52,12 +52,11 @@ header nav {
   box-shadow: 0 2px 10px rgba(14, 14, 14, 0.7); /* Optional: Add shadow for depth */
   width: 94vw;
   height: 70px;
-  overflow: hidden;
   display: flex;
   justify-content: space-between;
   margin: 1.5% 2% 2% 2%;
   border-radius: 25px;
-  position: fixed;
+  /* position: fixed; */
   align-items: center;
 }
 
@@ -73,14 +72,14 @@ header nav a:hover {
   padding: 0 18px;
 }
 
-nav ul {
+nav > ul {
   display: flex;
   align-items: center;
 }
 
 nav .hamburger-menu,
 nav .x-icon {
-  display: none;
+  /* display: none; */
   width: 30px;
   height: 30px;
   margin-right: 18px;
@@ -98,6 +97,12 @@ nav ul li a {
   font-size: 1.2rem;
   padding-left: 18px;
   padding-right: 18px;
+}
+
+/* SIDE BAR */
+header nav .side-bar {
+  border: 1px solid red;
+  display: none;
 }
 
 main section {
@@ -422,48 +427,6 @@ main #gallery {
   font-weight: bold;
 }
 
-/* #gallery{
-    border: 1px solid red;
-    height: auto;
-}
-
-#gallery .project img{
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#gallery .project .vertical-position{
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    border: 1px solid red;
-    width: 70vw;
-    gap: 10px;
-}
-
-
-#gallery .project .vertical-position img{
-    width: 90%;
-    height: auto;
-}
-
-#gallery .project .single-picture{
-    border: 1px solid red;
-    width: 50vw;
-    display: flex;
-}
-
-#gallery .project .single-picture img{
-    width: 420px;
-}
-#gallery .project{
-    display: flex;
-}
-
-#gallery .project .single-picture img:hover{
-    cursor: pointer;
-} */
-
 main #contact {
   background-color: black;
   display: flex;
@@ -701,13 +664,54 @@ footer span > p {
     font-size: 2.5rem;
   }
 
-  nav ul {
+  header nav > ul {
     display: none;
   }
 
-  nav .hamburger-menu{
-    display: unset;
+  header nav .side-bar ul{
+    display: none;
+    flex-direction: column;
+    align-items: center;
   }
+
+  header nav .side-bar .hamburger-menu{
+    display: block;
+  }
+
+  header nav .side-bar .active .hamburger-menu{
+    display: none;
+  }
+
+  header nav .side-bar.active .x-icon{
+    display: block;
+  }
+
+  header nav .side-bar.active ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header nav .side-bar ul li{
+    padding: 1rem;
+    margin: .5rem;
+  }
+
+  header nav .side-bar{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 90;
+    right: 0;
+    width: fit-content;
+    height: 100vh;
+  }
+
+
 }
 
 @media (max-width: 757px) {
@@ -743,4 +747,3 @@ footer span > p {
     font-size: 2.7rem;
   }
 }
-
